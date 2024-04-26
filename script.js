@@ -1,6 +1,7 @@
 $(".toggleDarkMode").click(function () {
-  $("#contentContainer").toggleClass("darkMode");
+  $("body").toggleClass("dark-mode");
 });
+
 const storeItems = [
   {
     name: "TV",
@@ -73,14 +74,15 @@ storeItems.forEach(function(item) {
     if (item.inStock) {
         $(".items").append(
             `<div class="item">
+            <p>$${item.price.toFixed(2)}</p>
                 <h2>${item.name}</h2>
-                <p>Price: $${item.price.toFixed(2)}</p>
+                
                 <p>${item.details}</p>
             </div>`
         );
     }
 });
 
-$("#dark-mode-checkbox").change(function () {
+$("#dark-mode-checkbox").on("click", function () {
   $("body").toggleClass("dark-mode");
 });
